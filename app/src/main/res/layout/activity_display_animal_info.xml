@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#005eff"
     tools:context="dev.uublabs.zoo.DisplayAnimalInfoActivity">
     <TextView
         android:id="@+id/tvAnimalInfoName"
@@ -13,9 +14,10 @@
         android:layout_height="wrap_content" />
     <ImageView
         android:id="@+id/ivAnimal"
+        android:layout_gravity="center"
         android:scaleType="fitXY"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="300dp"
+        android:layout_height="300dp" />
     <TextView
         android:id="@+id/tvAnimalInfoType"
         android:textSize="20sp"

@@ -5,13 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#005eff"
     tools:context="dev.uublabs.zoo.ZooHomeActivity">
 
     <TextView
+        android:textSize="35sp"
         android:layout_gravity="center"
+        android:gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zoo" />
+        android:text="Namek Zoo\nHome to a variety of different types of \nanimals. \nClick the button below to see all the animals." />
     <TextView
         android:id="@+id/tvZooInfo"
         android:layout_width="match_parent"

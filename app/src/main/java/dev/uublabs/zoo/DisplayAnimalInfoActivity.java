@@ -1,5 +1,6 @@
 package dev.uublabs.zoo;
 
+import android.media.MediaPlayer;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ public class DisplayAnimalInfoActivity extends AppCompatActivity
     private Animal animal;
     private TextView tvDescription;
     private ImageView ivAnimal;
+    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,49 +43,59 @@ public class DisplayAnimalInfoActivity extends AppCompatActivity
             case "Moluccan Cockatoo":
             {
                 ivAnimal.setImageResource(R.drawable.cockatoo);
+                mp = MediaPlayer.create(this, R.raw.cockatoo);
                 break;
             }
             case "Scarlet Macaw":
             {
                 ivAnimal.setImageResource(R.drawable.scarletmacaw);
+                mp = MediaPlayer.create(this, R.raw.parrot);
                 break;
             }
             case "Eagle":
             {
                 ivAnimal.setImageResource(R.drawable.eagle);
+                mp = MediaPlayer.create(this, R.raw.eagle);
                 break;
             }
             case "American Black Bear":
             {
                 ivAnimal.setImageResource(R.drawable.blackbear);
+                mp = MediaPlayer.create(this, R.raw.bear1);
                 break;
             }
             case "Brown Bear":
             {
                 ivAnimal.setImageResource(R.drawable.brownbear);
+                mp = MediaPlayer.create(this, R.raw.bear2);
                 break;
             }
             case "Bengal Tiger":
             {
                 ivAnimal.setImageResource(R.drawable.bengaltiger);
+                mp = MediaPlayer.create(this, R.raw.tiger);
                 break;
             }
             case "White Tiger":
             {
                 ivAnimal.setImageResource(R.drawable.whitetiger);
+                mp = MediaPlayer.create(this, R.raw.tiger);
                 break;
             }
             case "West African Giraffe":
             {
                 ivAnimal.setImageResource(R.drawable.giraffe);
+                mp = MediaPlayer.create(this, R.raw.giraffe);
                 break;
             }
             case "African Elephant":
             {
                 ivAnimal.setImageResource(R.drawable.elephant);
+                mp = MediaPlayer.create(this, R.raw.elephant);
                 break;
             }
         }
-
+        if (mp != null)
+            mp.start();
     }
 }
