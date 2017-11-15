@@ -8,6 +8,7 @@ public class Animal
 {
     String name;
     String type;
+    String description;
 
     public Animal(String name)
     {
@@ -17,6 +18,12 @@ public class Animal
     public Animal(String name, String type) {
         this.name = name;
         this.type = type;
+    }
+
+    public Animal(String name, String type, String description) {
+        this.name = name;
+        this.type = type;
+        this.description = description;
     }
 
     public String getName()
@@ -31,9 +38,7 @@ public class Animal
 
     @Override
     public String toString() {
-        return "Animal{" +
-                "name='" + name +
-                '}';
+        return "Description: "+getDescription();
     }
 
     public String getType() {
@@ -42,5 +47,13 @@ public class Animal
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

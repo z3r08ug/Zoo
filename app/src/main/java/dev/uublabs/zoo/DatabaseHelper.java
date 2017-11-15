@@ -26,7 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
     {
         String CREATE_TABLE = "CREATE TABLE " + DatabaseContract.Entry.TABLE_NAME + "(" + DatabaseContract.Entry.COLUMN_NAME
                 + " TEXT PRIMARY KEY," +
-                DatabaseContract.Entry.COLUMN_TYPE + " TEXT " +
+                DatabaseContract.Entry.COLUMN_TYPE + " TEXT, " + DatabaseContract.Entry.COLUMN_DESC+" TEXT "+
                 ")";
         db.execSQL(CREATE_TABLE);
     }
@@ -45,6 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseContract.Entry.COLUMN_NAME, animal.getName());
         contentValues.put(DatabaseContract.Entry.COLUMN_TYPE, animal.getType());
+        contentValues.put(DatabaseContract.Entry.COLUMN_DESC, animal.getDescription());
         long row = db.insert(DatabaseContract.Entry.TABLE_NAME, null,contentValues);
         return row;
     }
@@ -63,7 +64,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
             {
                 Animal animal = new Animal(
                         cursor.getString(0),
-                        cursor.getString(1));
+                        cursor.getString(1),
+                        cursor.getString(2));
                 animalList.add(animal);
             }
             while (cursor.moveToNext());
@@ -85,7 +87,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
             {
                 Animal animal = new Animal(
                         cursor.getString(0),
-                        cursor.getString(1));
+                        cursor.getString(1),
+                        cursor.getString(2));
                 animalList.add(animal);
             }
             while (cursor.moveToNext());
@@ -96,7 +99,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
     public Animal getAnimal(String animalName)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        Animal animal = new Animal("","");
+        Animal animal = new Animal("","", "");
 
         String QUERY = "SELECT * FROM " + DatabaseContract.Entry.TABLE_NAME + " WHERE Name='"+animalName+"'";
         Cursor cursor = db.rawQuery(QUERY, null);
@@ -107,7 +110,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
             {
                 animal = new Animal(
                         cursor.getString(0),
-                        cursor.getString(1));
+                        cursor.getString(1),
+                        cursor.getString(2));
             }
             while (cursor.moveToNext());
         }

@@ -14,5 +14,6 @@ public class DatabaseContract
         public static final String TABLE_NAME = "ZooAnimals";
         public static final String COLUMN_NAME = "Name";
         public static final String COLUMN_TYPE = "Type";
+        public static final String COLUMN_DESC = "Description";
     }
 }
